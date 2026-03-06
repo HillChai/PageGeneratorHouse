@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glow Composer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg"></div>
+    <header class="topbar">
+      <div class="brand">
+        <span class="spark">✦</span>
+        <div>
+          <h1>Glow Composer</h1>
+          <p>Tap/click to place a glow. Drag to move. Press <kbd>Space</kbd> to clear.</p>
+        </div>
+      </div>
+      <button id="randomize" class="pill">Randomize palette</button>
+    </header>
+
+    <main class="stage">
+      <canvas id="canvas"></canvas>
+      <div class="controls" aria-label="controls">
+        <div class="control">
+          <label for="size">Glow size</label>
+          <input id="size" type="range" min="20" max="220" value="90" />
+        </div>
+        <div class="control">
+          <label for="blur">Softness</label>
+          <input id="blur" type="range" min="10" max="140" value="70" />
+        </div>
+        <div class="control">
+          <label for="palette">Palette</label>
+          <select id="palette">
+            <option value="neon" selected>Neon</option>
+            <option value="pastel">Pastel</option>
+            <option value="mono">Mono</option>
+            <option value="sunset">Sunset</option>
+          </select>
+        </div>
+        <div class="row">
+          <button id="clear" class="ghost">Clear</button>
+          <button id="download" class="ghost">Export PNG</button>
+        </div>
+        <p class="hint">Tip: double-click to spawn a burst.</p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>One page · zero menus · just play</span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
