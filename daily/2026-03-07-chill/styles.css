@@ -44,12 +44,12 @@ body {
 
 .backdrop::before {
   top: 0;
-  background: linear-gradient(180deg, rgba(75, 55, 45, 0.42), rgba(75, 55, 45, 0));
+  background: linear-gradient(180deg, rgba(75, 55, 45, 0.36), rgba(75, 55, 45, 0));
 }
 
 .backdrop::after {
   bottom: 0;
-  background: linear-gradient(0deg, rgba(75, 55, 45, 0.38), rgba(75, 55, 45, 0));
+  background: linear-gradient(0deg, rgba(75, 55, 45, 0.36), rgba(75, 55, 45, 0));
 }
 
 .topbar {
