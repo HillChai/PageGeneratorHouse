@@ -27,9 +27,29 @@ body {
   inset: 0;
   background: radial-gradient(circle at 20% 20%, rgba(255, 204, 153, 0.5), transparent 45%),
     radial-gradient(circle at 80% 0%, rgba(255, 236, 204, 0.6), transparent 55%),
-    linear-gradient(180deg, #f6efe6 0%, #f4e6d8 35%, #f1e0d0 100%);
+    linear-gradient(180deg, #f0e4d6 0%, #efdfcf 40%, #eed9c6 100%);
   filter: blur(0px);
   pointer-events: none;
+}
+
+.backdrop::before,
+.backdrop::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 22vh;
+  pointer-events: none;
+}
+
+.backdrop::before {
+  top: 0;
+  background: linear-gradient(180deg, rgba(75, 55, 45, 0.42), rgba(75, 55, 45, 0));
+}
+
+.backdrop::after {
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(75, 55, 45, 0.38), rgba(75, 55, 45, 0));
 }
 
 .topbar {

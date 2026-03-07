@@ -16,6 +16,7 @@ let tapCount = 0;
 let lastTap = 0;
 let lockedBright = false;
 const LOCK_THRESHOLD = 12;
+let autoPuff = 0;
 
 function resize() {
   const { width, height } = canvas.getBoundingClientRect();
@@ -207,8 +208,22 @@ function animate(now) {
   const delta = now - last;
   last = now;
   if (delta > 0) {
-    const decayRate = lockedBright ? 0.00008 : 0.00025;
-    energy = Math.max(lockedBright ? 0.6 : 0.1, energy - delta * decayRate);
+    const decayRate = lockedBright ? 0.00005 : 0.00025;
+    energy = Math.max(lockedBright ? 0.65 : 0.08, energy - delta * decayRate);
+
+    if (lockedBright) {
+      autoPuff += delta;
+      if (autoPuff > 260) {
+        const { width, height } = canvas.getBoundingClientRect();
+        const x = width * 0.2 + Math.random() * width * 0.6;
+        const y = height * 0.6 + Math.random() * height * 0.25;
+        addPuff(x, y);
+        autoPuff = 0;
+      }
+    } else {
+      autoPuff = 0;
+    }
+
     draw();
   }
   requestAnimationFrame(animate);
