@@ -6,7 +6,8 @@ Single-page web experiments for Genpage deployments.
 - `daily/YYYY-MM-DD/` — archived daily pages
 - `log.md` — one-line summary per day
 
-## Latest
+## Pages
+- **Glow Composer** (`daily/2026-03-07/`): interactive glow canvas with palette controls and export.
 - **Slow Morning** (`daily/2026-03-07-chill/`): cozy, warm canvas with sunlight, steam puffs, and tap-to-brighten interactions.
 
 ## Run locally
