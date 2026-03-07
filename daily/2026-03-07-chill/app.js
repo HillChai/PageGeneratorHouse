@@ -11,7 +11,7 @@ const reset = document.getElementById("reset");
 let sun = { x: 0.25, y: 0.25 };
 let puffs = [];
 let dimmed = false;
-let energy = 0.15;
+let energy = 0.06;
 let tapCount = 0;
 let lastTap = 0;
 let lockedBright = false;
@@ -54,8 +54,8 @@ function drawSunlight() {
 
 function drawCurtains() {
   const { width, height } = canvas.getBoundingClientRect();
-  const baseShade = dimmed ? 0.25 : 0.12;
-  const shadeStrength = Math.max(0.02, baseShade * (1 - energy * 0.9));
+  const baseShade = dimmed ? 0.38 : 0.28;
+  const shadeStrength = Math.max(0.06, baseShade * (1 - energy));
   ctx.fillStyle = `rgba(120, 90, 70, ${shadeStrength})`;
   ctx.fillRect(0, 0, width, height);
 }
@@ -63,7 +63,7 @@ function drawCurtains() {
 function drawGlowWash() {
   const { width, height } = canvas.getBoundingClientRect();
   const wash = ctx.createRadialGradient(width * 0.5, height * 0.2, 40, width * 0.5, height * 0.5, width * 0.8);
-  wash.addColorStop(0, warmthColor(0.12 + energy * 0.35));
+  wash.addColorStop(0, warmthColor(0.04 + energy * 0.42));
   wash.addColorStop(1, warmthColor(0));
   ctx.save();
   ctx.globalCompositeOperation = "screen";
@@ -188,7 +188,7 @@ reset.addEventListener("click", () => {
   glow.value = 120;
   breeze.value = 25;
   sun = { x: 0.25, y: 0.25 };
-  energy = 0.15;
+  energy = 0.06;
   tapCount = 0;
   lockedBright = false;
   draw();
