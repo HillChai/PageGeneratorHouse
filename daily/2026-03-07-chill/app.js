@@ -11,6 +11,11 @@ const reset = document.getElementById("reset");
 let sun = { x: 0.25, y: 0.25 };
 let puffs = [];
 let dimmed = false;
+let energy = 0.15;
+let tapCount = 0;
+let lastTap = 0;
+let lockedBright = false;
+const LOCK_THRESHOLD = 12;
 
 function resize() {
   const { width, height } = canvas.getBoundingClientRect();
@@ -49,9 +54,22 @@ function drawSunlight() {
 
 function drawCurtains() {
   const { width, height } = canvas.getBoundingClientRect();
-  const shade = dimmed ? "rgba(120, 90, 70, 0.25)" : "rgba(255, 245, 230, 0.12)";
-  ctx.fillStyle = shade;
+  const baseShade = dimmed ? 0.25 : 0.12;
+  const shadeStrength = Math.max(0.02, baseShade * (1 - energy * 0.9));
+  ctx.fillStyle = `rgba(120, 90, 70, ${shadeStrength})`;
   ctx.fillRect(0, 0, width, height);
+}
+
+function drawGlowWash() {
+  const { width, height } = canvas.getBoundingClientRect();
+  const wash = ctx.createRadialGradient(width * 0.5, height * 0.2, 40, width * 0.5, height * 0.5, width * 0.8);
+  wash.addColorStop(0, warmthColor(0.12 + energy * 0.35));
+  wash.addColorStop(1, warmthColor(0));
+  ctx.save();
+  ctx.globalCompositeOperation = "screen";
+  ctx.fillStyle = wash;
+  ctx.fillRect(0, 0, width, height);
+  ctx.restore();
 }
 
 function drawPuffs() {
@@ -92,6 +110,7 @@ function draw() {
   ctx.clearRect(0, 0, width, height);
   drawFloorGlow();
   drawSunlight();
+  drawGlowWash();
   drawCurtains();
   drawPuffs();
 }
@@ -126,6 +145,16 @@ canvas.addEventListener("pointerdown", (event) => {
   for (let i = 0; i < 3; i += 1) {
     addPuff(x + Math.random() * 18 - 9, y + Math.random() * 18 - 9);
   }
+
+  const now = performance.now();
+  const delta = now - lastTap;
+  lastTap = now;
+  tapCount += 1;
+  const speedBoost = delta < 300 ? 0.18 : delta < 600 ? 0.12 : 0.06;
+  energy = Math.min(1, energy + 0.12 + speedBoost);
+  if (tapCount >= LOCK_THRESHOLD) {
+    lockedBright = true;
+  }
   draw();
 });
 
@@ -159,6 +188,9 @@ reset.addEventListener("click", () => {
   glow.value = 120;
   breeze.value = 25;
   sun = { x: 0.25, y: 0.25 };
+  energy = 0.15;
+  tapCount = 0;
+  lockedBright = false;
   draw();
 });
 
@@ -174,6 +206,8 @@ function animate(now) {
   const delta = now - last;
   last = now;
   if (delta > 0) {
+    const decayRate = lockedBright ? 0.00008 : 0.00025;
+    energy = Math.max(lockedBright ? 0.6 : 0.1, energy - delta * decayRate);
     draw();
   }
   requestAnimationFrame(animate);
