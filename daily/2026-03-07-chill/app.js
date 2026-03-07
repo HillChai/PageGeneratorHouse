@@ -21,26 +21,25 @@ function resize() {
   draw();
 }
 
-function warmthColor() {
+function warmthColor(alpha = 1) {
   const t = Number(warmth.value) / 100;
   const r = Math.floor(220 + t * 30);
   const g = Math.floor(180 + t * 50);
   const b = Math.floor(140 + t * 40);
-  return `rgb(${r}, ${g}, ${b})`;
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
 
 function drawSunlight() {
   const { width, height } = canvas.getBoundingClientRect();
   const glowSize = Number(glow.value);
-  const color = warmthColor();
   const x = width * sun.x;
   const y = height * sun.y;
 
   ctx.save();
   ctx.globalCompositeOperation = "screen";
   const gradient = ctx.createRadialGradient(x, y, 20, x, y, glowSize * 2.2);
-  gradient.addColorStop(0, `${color}dd`);
-  gradient.addColorStop(1, `${color}00`);
+  gradient.addColorStop(0, warmthColor(0.85));
+  gradient.addColorStop(1, warmthColor(0));
   ctx.fillStyle = gradient;
   ctx.beginPath();
   ctx.arc(x, y, glowSize * 2.2, 0, Math.PI * 2);
