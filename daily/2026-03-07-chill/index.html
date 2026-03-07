@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slow Morning</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="backdrop"></div>
+    <header class="topbar">
+      <div class="title">
+        <span class="dot">☼</span>
+        <div>
+          <h1>Slow Morning</h1>
+          <p>Drag the light, tap to breathe in a warm puff, and let the room wake up gently.</p>
+        </div>
+      </div>
+      <button id="reset" class="pill">Reset scene</button>
+    </header>
+
+    <main class="stage">
+      <canvas id="canvas" aria-label="slow morning canvas"></canvas>
+      <aside class="panel">
+        <h2>Cozy controls</h2>
+        <div class="control">
+          <label for="warmth">Warmth</label>
+          <input id="warmth" type="range" min="0" max="100" value="68" />
+        </div>
+        <div class="control">
+          <label for="glow">Sun glow</label>
+          <input id="glow" type="range" min="40" max="180" value="120" />
+        </div>
+        <div class="control">
+          <label for="breeze">Breeze</label>
+          <input id="breeze" type="range" min="0" max="100" value="25" />
+        </div>
+        <div class="buttons">
+          <button id="brew" class="ghost">Brew tea</button>
+          <button id="dim" class="ghost">Dim room</button>
+        </div>
+        <p class="hint">Tip: move your cursor to guide the sunlight.</p>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <span>One page · slow vibes · no rush</span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
