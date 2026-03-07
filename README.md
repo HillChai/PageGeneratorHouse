@@ -2,8 +2,12 @@
 
 Single-page web experiments for Genpage deployments.
 
+## Structure
+- `daily/YYYY-MM-DD/` — archived daily pages
+- `log.md` — one-line summary per day
+
 ## Latest
-- **Glow Composer** (`/glow-composer`): a creative, interactive one-page tool where guests place, drag, and tweak glowing blobs, then export a PNG.
+- **Slow Morning** (`daily/2026-03-07-chill/`): cozy, warm canvas with sunlight, steam puffs, and tap-to-brighten interactions.
 
 ## Run locally
-Open `glow-composer/index.html` in a browser.
+Open the `index.html` inside any `daily/...` folder in a browser.
