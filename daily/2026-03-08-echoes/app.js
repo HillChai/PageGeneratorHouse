@@ -5,14 +5,14 @@ const form = document.getElementById('composer');
 const input = document.getElementById('messageInput');
 
 const messages = [
-  'We talked until the sky turned pale.',
-  'I replayed your laugh in the morning light.',
-  'It felt like a beginning.',
-  'Then the thread went quiet.',
-  'The afterglow stayed.',
-  'I still hear the typing dots.',
-  'Somewhere, you are awake too.',
-  'I hold the night between my hands.'
+  'We talked until\n the sky turned pale.',
+  'I replayed your laugh\n in the morning light.',
+  'It felt like\n a beginning.',
+  'Then the thread\n went quiet.',
+  'The afterglow\n stayed with me.',
+  'I still hear\n the typing dots.',
+  'Somewhere,\n you are awake too.',
+  'I hold the night\n between my hands.'
 ];
 
 let heldBubble = null;
