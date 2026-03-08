@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Afterglow Echoes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="stage">
+    <header class="top">
+      <div>
+        <p class="date">2026-03-08</p>
+        <h1>Afterglow Echoes</h1>
+        <p class="subtitle">A late-night chat still glowing, even after the silence.</p>
+      </div>
+      <div class="controls">
+        <label for="distance">Distance</label>
+        <input id="distance" type="range" min="0" max="100" value="35" />
+        <button id="hold">Hold the last message</button>
+      </div>
+    </header>
+
+    <section class="chat-sky" aria-live="polite">
+      <div class="halo"></div>
+      <div class="message-stream" id="stream"></div>
+    </section>
+
+    <section class="compose">
+      <p class="hint">Type the thing you wish you could send. It will appear, then drift away.</p>
+      <form id="composer">
+        <input id="messageInput" type="text" maxlength="80" placeholder="Write a message..." required />
+        <button type="submit">Send to the night</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>Click a bubble to let it fade. Keep one if you must.</p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

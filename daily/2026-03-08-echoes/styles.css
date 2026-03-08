@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&display=swap');
+
+:root {
+  color-scheme: dark;
+  --bg: #06070d;
+  --accent: #9ac8ff;
+  --soft: rgba(255, 255, 255, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Manrope', sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #11162a, #05060a 60%);
+  color: #f1f2f4;
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 3rem clamp(1.5rem, 4vw, 4rem);
+  gap: 2rem;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.date {
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  margin: 0.4rem 0;
+}
+
+.subtitle {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.controls {
+  display: grid;
+  gap: 0.6rem;
+  align-content: center;
+}
+
+.controls label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.controls input[type='range'] {
+  width: 220px;
+}
+
+.controls button {
+  background: rgba(154, 200, 255, 0.2);
+  border: 1px solid rgba(154, 200, 255, 0.5);
+  color: #e5f1ff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.controls button:hover {
+  background: rgba(154, 200, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+.chat-sky {
+  position: relative;
+  flex: 1;
+  border-radius: 24px;
+  background: radial-gradient(circle at 20% 20%, rgba(154, 200, 255, 0.15), transparent 55%),
+    linear-gradient(135deg, rgba(12, 14, 20, 0.9), rgba(6, 7, 13, 0.8));
+  overflow: hidden;
+  padding: 2rem;
+  min-height: 360px;
+}
+
+.halo {
+  position: absolute;
+  inset: -30% 20% 40% 20%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent 60%);
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+.message-stream {
+  position: relative;
+  height: 100%;
+}
+
+.bubble {
+  position: absolute;
+  max-width: 220px;
+  padding: 0.75rem 1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  color: var(--soft);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  transition: opacity 0.5s ease, transform 0.5s ease, filter 0.5s ease;
+  cursor: pointer;
+}
+
+.bubble.hold {
+  border-color: rgba(154, 200, 255, 0.8);
+  box-shadow: 0 0 18px rgba(154, 200, 255, 0.5);
+}
+
+.bubble.fade {
+  opacity: 0;
+  transform: translateY(-20px) scale(0.96);
+  filter: blur(6px);
+}
+
+.echo {
+  position: absolute;
+  font-size: 0.7rem;
+  color: rgba(154, 200, 255, 0.6);
+  opacity: 0;
+  animation: drift 3s ease forwards;
+}
+
+@keyframes drift {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-60px);
+    opacity: 0;
+  }
+}
+
+.compose {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.compose form {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.compose input {
+  flex: 1 1 240px;
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(12, 12, 20, 0.6);
+  color: white;
+}
+
+.compose button {
+  padding: 0.8rem 1.4rem;
+  border-radius: 999px;
+  border: none;
+  background: #9ac8ff;
+  color: #0a0d14;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hint {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+footer {
+  text-align: right;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.85rem;
+}
