@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+  --bg: #0f1221;
+  --card: rgba(255, 255, 255, 0.06);
+  --text: #f5f6ff;
+  --muted: rgba(245, 246, 255, 0.65);
+  --accent: #8be9fd;
+  --accent-2: #ffb4d0;
+  --weekend: #ffd966;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: radial-gradient(circle at top, #20244a, #0f1221 60%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 56px 24px 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.hero {
+  text-align: center;
+}
+
+.eyebrow {
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.hero h1 {
+  font-size: clamp(32px, 6vw, 52px);
+  margin: 10px 0;
+}
+
+.sub {
+  margin: 0;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.countdown, .meter {
+  padding: 24px;
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+}
+
+.countdown-label, .meter-label {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.2em;
+}
+
+.countdown-value {
+  font-size: 56px;
+  font-weight: 700;
+  margin: 8px 0;
+}
+
+.countdown-note {
+  color: var(--muted);
+}
+
+.meter-track {
+  margin-top: 12px;
+  width: 100%;
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  width: 30%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: inherit;
+  transition: width 0.3s ease;
+}
+
+.meter-hint {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.week {
+  background: var(--card);
+  border-radius: 22px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.week-label {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.day {
+  padding: 12px 8px;
+  border-radius: 14px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.04);
+  position: relative;
+}
+
+.day span {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+.day.current {
+  color: var(--text);
+  background: rgba(139, 233, 253, 0.16);
+  box-shadow: 0 0 18px rgba(139, 233, 253, 0.3);
+}
+
+.day.weekend {
+  color: #1e1f2f;
+  background: var(--weekend);
+}
+
+.day::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+.plans {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.plans h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.note {
+  color: var(--muted);
+  margin: 4px 0 0;
+}
+
+#planForm {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+#planInput {
+  flex: 1 1 280px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+}
+
+#planInput:focus {
+  outline: 2px solid rgba(139, 233, 253, 0.4);
+}
+
+button {
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  color: #1e1f2f;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.plan-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.plan-item {
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plan-item.glow {
+  background: linear-gradient(120deg, rgba(139, 233, 253, 0.7), rgba(255, 180, 208, 0.7));
+  color: #1e1f2f;
+  box-shadow: 0 0 18px rgba(255, 180, 208, 0.55);
+}
+
+.plan-item:hover {
+  transform: translateY(-2px);
+}
+
+.footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 720px) {
+  .week-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

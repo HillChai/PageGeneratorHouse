@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weekend Wait</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">Monday-night energy</p>
+      <h1>Waiting for the Weekend</h1>
+      <p class="sub">That slow, sweet pull toward two quiet days.</p>
+    </header>
+
+    <section class="panel">
+      <div class="countdown">
+        <div class="countdown-label">Days until weekend</div>
+        <div class="countdown-value" id="daysLeft">—</div>
+        <div class="countdown-note" id="countdownNote">Loading the calendar…</div>
+      </div>
+      <div class="meter">
+        <div class="meter-label">Anticipation meter</div>
+        <div class="meter-track">
+          <div class="meter-fill" id="meterFill"></div>
+        </div>
+        <div class="meter-hint">Move your cursor (or swipe) to shift the mood.</div>
+      </div>
+    </section>
+
+    <section class="week">
+      <div class="week-label">This week</div>
+      <div class="week-grid" id="weekGrid"></div>
+    </section>
+
+    <section class="plans">
+      <div>
+        <h2>What tiny plan is keeping you going?</h2>
+        <p class="note">Add a small weekend promise. Tap it to glow.</p>
+      </div>
+      <form id="planForm">
+        <input type="text" id="planInput" placeholder="Coffee run, long nap, sunset walk…" autocomplete="off" />
+        <button type="submit">Add</button>
+      </form>
+      <div class="plan-list" id="planList"></div>
+    </section>
+
+    <footer class="footer">
+      <span>Take it slow. The weekend is coming.</span>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

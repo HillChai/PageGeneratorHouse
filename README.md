@@ -10,6 +10,7 @@ Single-page web experiments for Genpage deployments.
 - **Glow Composer** (`daily/2026-03-07/`): interactive glow canvas with palette controls and export.
 - **Slow Morning** (`daily/2026-03-07-chill/`): cozy, warm canvas with sunlight, steam puffs, and tap-to-brighten interactions.
 - **Afterglow Echoes** (`daily/2026-03-08-echoes/`): late-night chat bubbles drifting away with distance blur.
+- **Weekend Wait** (`daily/2026-03-09-weekend-wait/`): countdown, week map, anticipation meter, micro-plans.
 
 ## Run locally
 Open the `index.html` inside any `daily/...` folder in a browser.
