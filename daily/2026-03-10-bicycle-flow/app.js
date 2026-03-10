@@ -100,7 +100,7 @@ const playWhoosh = () => {
 
   const now = ctx.currentTime;
   const noise = ctx.createBufferSource();
-  const buffer = ctx.createBuffer(1, ctx.sampleRate * 0.25, ctx.sampleRate);
+  const buffer = ctx.createBuffer(1, ctx.sampleRate * 0.6, ctx.sampleRate);
   const data = buffer.getChannelData(0);
   for (let i = 0; i < data.length; i++) {
     data[i] = (Math.random() * 2 - 1) * (1 - i / data.length);
@@ -109,17 +109,21 @@ const playWhoosh = () => {
 
   const filter = ctx.createBiquadFilter();
   filter.type = 'bandpass';
-  filter.frequency.setValueAtTime(700, now);
-  filter.Q.setValueAtTime(0.6, now);
+  filter.frequency.setValueAtTime(540, now);
+  filter.Q.setValueAtTime(0.45, now);
+
+  const air = ctx.createBiquadFilter();
+  air.type = 'highpass';
+  air.frequency.setValueAtTime(300, now);
 
   const gain = ctx.createGain();
   gain.gain.setValueAtTime(0.0001, now);
-  gain.gain.exponentialRampToValueAtTime(0.18, now + 0.02);
-  gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.22);
+  gain.gain.exponentialRampToValueAtTime(0.22, now + 0.04);
+  gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.55);
 
-  noise.connect(filter).connect(gain).connect(ctx.destination);
+  noise.connect(filter).connect(air).connect(gain).connect(ctx.destination);
   noise.start(now);
-  noise.stop(now + 0.25);
+  noise.stop(now + 0.6);
 };
 
 const startPedal = () => {
