@@ -6,13 +6,54 @@ const bellBtn = document.getElementById('bellBtn');
 const playfulToggle = document.getElementById('playfulToggle');
 const meterFill = document.getElementById('meterFill');
 const bike = document.getElementById('bike');
-const bellSound = document.getElementById('bellSound');
-
 let speed = 0;
 let distance = 0;
 let pedaling = false;
 let playful = true;
 let wobble = 0;
+
+let audioContext;
+
+const getAudioContext = () => {
+  if (!audioContext) {
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  return audioContext;
+};
+
+const ringBell = () => {
+  const ctx = getAudioContext();
+  if (ctx.state === 'suspended') {
+    ctx.resume();
+  }
+
+  const now = ctx.currentTime;
+  const carrier = ctx.createOscillator();
+  const modulator = ctx.createOscillator();
+  const modGain = ctx.createGain();
+  const gain = ctx.createGain();
+
+  carrier.type = 'sine';
+  modulator.type = 'triangle';
+
+  carrier.frequency.setValueAtTime(780, now);
+  modulator.frequency.setValueAtTime(32, now);
+  modGain.gain.setValueAtTime(140, now);
+
+  modulator.connect(modGain);
+  modGain.connect(carrier.frequency);
+
+  gain.gain.setValueAtTime(0.0001, now);
+  gain.gain.exponentialRampToValueAtTime(0.35, now + 0.01);
+  gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.2);
+
+  carrier.connect(gain).connect(ctx.destination);
+
+  carrier.start(now);
+  modulator.start(now);
+  carrier.stop(now + 1.25);
+  modulator.stop(now + 1.25);
+};
 
 const moods = ['Ready', 'Cruising', 'Gliding', 'Focused', 'Joyful'];
 
@@ -78,10 +119,7 @@ window.addEventListener('keyup', (event) => {
   }
 });
 
-bellBtn.addEventListener('click', () => {
-  bellSound.currentTime = 0;
-  bellSound.play();
-});
+bellBtn.addEventListener('click', ringBell);
 
 playfulToggle.addEventListener('change', (event) => {
   playful = event.target.checked;
