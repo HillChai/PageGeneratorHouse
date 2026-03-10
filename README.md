@@ -11,6 +11,7 @@ Single-page web experiments for Genpage deployments.
 - **Slow Morning** (`daily/2026-03-07-chill/`): cozy, warm canvas with sunlight, steam puffs, and tap-to-brighten interactions.
 - **Afterglow Echoes** (`daily/2026-03-08-echoes/`): late-night chat bubbles drifting away with distance blur.
 - **Weekend Wait** (`daily/2026-03-09-weekend-wait/`): countdown, week map, anticipation meter, micro-plans.
+- **Bicycle Flow** (`daily/2026-03-10-bicycle-flow/`): playful commute ride with pedal/space control, bell, and momentum meter.
 
 ## Run locally
 Open the `index.html` inside any `daily/...` folder in a browser.

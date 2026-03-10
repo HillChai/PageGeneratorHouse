@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+  --bg: #f5f7ff;
+  --ink: #1b1f3b;
+  --accent: #5a6cff;
+  --accent-soft: #b8c2ff;
+  --sun: #ffc36e;
+  --road: #10121f;
+  --lane: #f4f7ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  background: linear-gradient(180deg, #f6fbff 0%, #f1f2ff 45%, #f9f5ff 100%);
+}
+
+.page {
+  min-height: 100vh;
+  padding: 48px 6vw 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 32px;
+  align-items: center;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 12px;
+  color: #7a7fa6;
+  margin: 0 0 10px;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  margin: 0 0 14px;
+}
+
+.sub {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 24px;
+  max-width: 520px;
+}
+
+.key {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #d9ddff;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(90, 108, 255, 0.3);
+}
+
+.btn.ghost {
+  background: #fff;
+  border: 1px solid #d9ddff;
+  color: var(--ink);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #4a4f72;
+}
+
+.stats {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  padding: 20px;
+  display: grid;
+  gap: 12px;
+  box-shadow: 0 10px 30px rgba(90, 108, 255, 0.12);
+}
+
+.stat {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+}
+
+.stat .label {
+  color: #6f7392;
+}
+
+.stat .value {
+  font-weight: 600;
+}
+
+.ride {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #dfe9ff 0%, #f8f9ff 70%);
+  min-height: 320px;
+  box-shadow: 0 20px 50px rgba(76, 85, 188, 0.18);
+}
+
+.sky {
+  position: absolute;
+  inset: 0;
+}
+
+.cloud {
+  position: absolute;
+  width: 120px;
+  height: 48px;
+  background: #ffffff;
+  border-radius: 999px;
+  box-shadow: 30px 8px 0 -10px #ffffff, -25px 8px 0 -12px #ffffff;
+  opacity: 0.8;
+  filter: blur(0.2px);
+}
+
+.cloud-a {
+  top: 24px;
+  left: 10%;
+}
+
+.cloud-b {
+  top: 60px;
+  left: 50%;
+}
+
+.cloud-c {
+  top: 30px;
+  left: 75%;
+}
+
+.city {
+  position: absolute;
+  bottom: 90px;
+  left: 0;
+  width: 200%;
+  height: 120px;
+  display: flex;
+  gap: 30px;
+  padding: 0 40px;
+  align-items: flex-end;
+}
+
+.building {
+  width: 100px;
+  background: #c1c8ff;
+  border-radius: 12px 12px 0 0;
+  height: 60px;
+  opacity: 0.7;
+  box-shadow: inset 0 -20px 0 rgba(255, 255, 255, 0.3);
+}
+
+.building:nth-child(2) { height: 80px; }
+.building:nth-child(3) { height: 50px; }
+.building:nth-child(4) { height: 90px; }
+.building:nth-child(5) { height: 65px; }
+
+.road {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  background: var(--road);
+}
+
+.lane {
+  position: absolute;
+  top: 40px;
+  left: -10%;
+  height: 6px;
+  width: 120%;
+  background: repeating-linear-gradient(
+    to right,
+    var(--lane) 0 40px,
+    transparent 40px 70px
+  );
+  opacity: 0.7;
+}
+
+.bike {
+  position: absolute;
+  bottom: 25px;
+  left: 10%;
+  width: 200px;
+  height: 120px;
+}
+
+.frame {
+  position: absolute;
+  left: 50px;
+  bottom: 38px;
+  width: 100px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 999px;
+  transform: skewX(-10deg);
+  box-shadow: 0 -10px 0 var(--accent-soft);
+}
+
+.wheel {
+  position: absolute;
+  bottom: 0;
+  width: 70px;
+  height: 70px;
+  border: 6px solid #fff;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.wheel.left { left: 20px; }
+.wheel.right { right: 20px; }
+
+.hub {
+  position: absolute;
+  inset: 14px;
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 255, 255, 0.8);
+}
+
+.rider {
+  position: absolute;
+  left: 80px;
+  bottom: 70px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--sun);
+  box-shadow: 0 30px 0 0 #ffd9a6;
+}
+
+.panel {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: 0 14px 30px rgba(90, 108, 255, 0.12);
+}
+
+.panel h2 {
+  margin-top: 0;
+}
+
+.panel p {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.meter {
+  position: relative;
+  height: 14px;
+  border-radius: 999px;
+  background: #edf0ff;
+  overflow: hidden;
+}
+
+.meter-fill {
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), #8ef3ff);
+  transition: width 0.2s ease;
+}
+
+.meter-label {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #6f7392;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .bike {
+    left: 5%;
+  }
+}

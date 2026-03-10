@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bicycle Flow — Daily Ride</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Daily Ride • 2026-03-10</p>
+        <h1>Bicycle Flow</h1>
+        <p class="sub">
+          A playful, fluent ride inspired by the everyday commute. Hold the pedal or press
+          <span class="key">Space</span> to keep the city gliding beneath your wheels.
+        </p>
+        <div class="controls">
+          <button id="pedalBtn" class="btn primary">Pedal</button>
+          <button id="bellBtn" class="btn ghost">Ring Bell</button>
+          <label class="toggle">
+            <input type="checkbox" id="playfulToggle" checked />
+            <span>Playful mode</span>
+          </label>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <span class="label">Speed</span>
+          <span class="value"><span id="speed">0</span> km/h</span>
+        </div>
+        <div class="stat">
+          <span class="label">Distance</span>
+          <span class="value"><span id="distance">0.0</span> km</span>
+        </div>
+        <div class="stat">
+          <span class="label">Mood</span>
+          <span class="value" id="mood">Ready</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="ride">
+      <div class="sky">
+        <div class="cloud cloud-a"></div>
+        <div class="cloud cloud-b"></div>
+        <div class="cloud cloud-c"></div>
+      </div>
+
+      <div class="city">
+        <div class="building"></div>
+        <div class="building"></div>
+        <div class="building"></div>
+        <div class="building"></div>
+        <div class="building"></div>
+      </div>
+
+      <div class="road">
+        <div class="lane"></div>
+      </div>
+
+      <div class="bike" id="bike">
+        <div class="frame"></div>
+        <div class="wheel left">
+          <div class="hub"></div>
+        </div>
+        <div class="wheel right">
+          <div class="hub"></div>
+        </div>
+        <div class="rider"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Ride Ritual</h2>
+      <p>
+        Every turn of the crank makes the world softer. Tap the pedal to push forward, or
+        hold to feel the flow. The skyline eases by as your distance climbs.
+      </p>
+      <div class="meter">
+        <div class="meter-fill" id="meterFill"></div>
+        <span class="meter-label">Momentum</span>
+      </div>
+    </section>
+  </main>
+
+  <audio id="bellSound" preload="auto">
+    <source src="https://actions.google.com/sounds/v1/alarms/bicycle_bell.ogg" type="audio/ogg" />
+    <source src="https://actions.google.com/sounds/v1/alarms/bicycle_bell.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="app.js"></script>
+</body>
+</html>
