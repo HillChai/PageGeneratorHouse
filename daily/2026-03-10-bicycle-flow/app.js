@@ -36,7 +36,7 @@ const ringBell = () => {
   carrier.type = 'sine';
   modulator.type = 'triangle';
 
-  carrier.frequency.setValueAtTime(780, now);
+  carrier.frequency.setValueAtTime(1200, now);
   modulator.frequency.setValueAtTime(32, now);
   modGain.gain.setValueAtTime(140, now);
 
