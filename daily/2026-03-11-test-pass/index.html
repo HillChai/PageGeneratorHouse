@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Pass — Quiet Triumph</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <div class="badge">March 11 · Test Night</div>
+        <h1>Quiet Triumph</h1>
+        <p class="subtitle">
+          Busy, nervous, and then relief. Tonight you passed — and the night
+          finally exhaled with you.
+        </p>
+        <div class="controls">
+          <button id="celebrateBtn">Release the confetti</button>
+          <button id="breatheBtn" class="ghost">Breathe with me</button>
+        </div>
+      </header>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Momentum Meter</h2>
+          <p>Drag the slider to replay the climb, then feel it tip into calm.</p>
+          <div class="meter">
+            <input id="momentum" type="range" min="0" max="100" value="35" />
+            <div class="meter-bar">
+              <span id="meterFill"></span>
+            </div>
+            <div class="meter-labels">
+              <span>nervous</span>
+              <span>steady</span>
+              <span>passed</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Relief Notes</h2>
+          <p>Tap a note to drop it into the sky. Let the worries drift away.</p>
+          <div class="notes" id="notes">
+            <button class="note">"I did it."</button>
+            <button class="note">"Breath came back."</button>
+            <button class="note">"It’s over."</button>
+            <button class="note">"Proud, finally."</button>
+          </div>
+          <div class="sky" id="sky"></div>
+        </article>
+
+        <article class="card">
+          <h2>Glow Log</h2>
+          <p>Three tiny wins from tonight:</p>
+          <ul class="wins" id="wins">
+            <li>Showed up when it mattered.</li>
+            <li>Stayed focused under pressure.</li>
+            <li>Finished strong and steady.</li>
+          </ul>
+          <button id="addWin" class="ghost">Add a win</button>
+        </article>
+      </section>
+
+      <footer class="footer">
+        <div class="pulse" id="pulse"></div>
+        <p>
+          You held it together through the rush. Now let the night be soft.
+        </p>
+      </footer>
+    </main>
+
+    <canvas id="confetti" aria-hidden="true"></canvas>
+    <script src="app.js"></script>
+  </body>
+</html>
