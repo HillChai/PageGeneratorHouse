@@ -14,7 +14,7 @@ const tipText = document.getElementById('tipText');
 
 let spinning = false;
 let angle = 0;
-let cycleMinutes = 28;
+let cycleMinutes = 5;
 let elapsed = 0;
 let timerId = null;
 
