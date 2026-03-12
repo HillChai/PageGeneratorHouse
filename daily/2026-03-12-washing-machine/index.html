@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spin Cycle Studio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="scene">
+    <header>
+      <p class="eyebrow">Laundry, live</p>
+      <h1>Spin Cycle Studio</h1>
+      <p class="subtitle">A tiny washing-machine ritual while the real one does its thing.</p>
+    </header>
+
+    <section class="machine">
+      <div class="panel">
+        <div class="display">
+          <span id="cycleName">Normal</span>
+          <span id="timeLeft">28:00</span>
+        </div>
+        <div class="meters">
+          <div class="meter">
+            <label for="waterLevel">Water level</label>
+            <input type="range" id="waterLevel" min="15" max="90" value="55" />
+            <span id="waterValue">55%</span>
+          </div>
+          <div class="meter">
+            <label for="tempLevel">Temp</label>
+            <input type="range" id="tempLevel" min="20" max="60" value="40" />
+            <span id="tempValue">40°C</span>
+          </div>
+        </div>
+        <div class="controls">
+          <button class="cycle" data-cycle="Quick" data-time="15">Quick</button>
+          <button class="cycle active" data-cycle="Normal" data-time="28">Normal</button>
+          <button class="cycle" data-cycle="Deep" data-time="45">Deep</button>
+          <button id="startBtn" class="primary">Start</button>
+        </div>
+      </div>
+
+      <div class="drum-shell">
+        <div class="drum">
+          <div class="glass">
+            <div class="water" id="water"></div>
+            <div class="laundry" id="laundry">
+              <span class="sock"></span>
+              <span class="sock"></span>
+              <span class="sock"></span>
+              <span class="sock"></span>
+            </div>
+            <div class="bubbles" id="bubbles"></div>
+          </div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="tips" id="tipText">Tap start to begin the gentle spin.</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
