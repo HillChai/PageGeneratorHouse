@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salary Day Parade</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="hero-badge">💸 Salary Day</div>
+      <h1>Salary Day Parade</h1>
+      <p>Tap the button, make it rain, and split your paycheck into happy jars.</p>
+      <div class="hero-actions">
+        <button id="rainButton" class="primary">Make it rain</button>
+        <div class="counter">
+          <span id="rainCount">0</span>
+          <small>coins dropped</small>
+        </div>
+      </div>
+    </header>
+
+    <section class="card paycheck">
+      <div class="card-title">
+        <h2>Paycheck slider</h2>
+        <span class="chip">drag me</span>
+      </div>
+      <div class="pay-row">
+        <input id="paySlider" type="range" min="1200" max="8000" step="100" value="3600" />
+        <div class="pay-amount">
+          <span>￥</span>
+          <strong id="payValue">3600</strong>
+        </div>
+      </div>
+      <div class="sparkline">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </section>
+
+    <section class="card jars">
+      <div class="card-title">
+        <h2>Money jars</h2>
+        <span class="chip">split the pay</span>
+      </div>
+      <div class="jar-grid">
+        <div class="jar" data-jar="needs">
+          <div class="jar-top">🏠 Needs</div>
+          <p>Rent, bills, food</p>
+          <input class="jar-slider" type="range" min="0" max="100" value="50" />
+          <div class="jar-stats">
+            <span class="jar-percent">50%</span>
+            <strong class="jar-amount">￥1800</strong>
+          </div>
+        </div>
+        <div class="jar" data-jar="savings">
+          <div class="jar-top">🌱 Savings</div>
+          <p>Future you says thanks</p>
+          <input class="jar-slider" type="range" min="0" max="100" value="30" />
+          <div class="jar-stats">
+            <span class="jar-percent">30%</span>
+            <strong class="jar-amount">￥1080</strong>
+          </div>
+        </div>
+        <div class="jar" data-jar="treats">
+          <div class="jar-top">🎉 Treats</div>
+          <p>Fun, snacks, vibes</p>
+          <input class="jar-slider" type="range" min="0" max="100" value="20" />
+          <div class="jar-stats">
+            <span class="jar-percent">20%</span>
+            <strong class="jar-amount">￥720</strong>
+          </div>
+        </div>
+      </div>
+      <div class="jar-footer">
+        <div class="total" id="percentTotal">Total: 100%</div>
+        <div class="message" id="budgetMessage">Perfect split. Payday glow unlocked ✨</div>
+      </div>
+    </section>
+
+    <section class="card perks">
+      <div class="card-title">
+        <h2>Payday perks</h2>
+        <span class="chip">pick a ritual</span>
+      </div>
+      <div class="perk-grid">
+        <button class="perk">☕ Fancy coffee</button>
+        <button class="perk">🎧 New playlist</button>
+        <button class="perk">🍜 Comfort meal</button>
+        <button class="perk">🛍️ Mini treat</button>
+        <button class="perk">🎬 Cozy movie</button>
+        <button class="perk">🌌 Night walk</button>
+      </div>
+      <p class="perk-note" id="perkNote">Pick one to add to your payday plan.</p>
+    </section>
+
+    <footer class="footer">
+      <span>Tap a perk, then hit “Make it rain” for extra sparkle.</span>
+      <div class="badge">Salary day: celebrated 🎈</div>
+    </footer>
+  </div>
+
+  <div id="coinField" class="coin-field" aria-hidden="true"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
