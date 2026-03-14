@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tulip Sea, People Mountain</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="hero-image" aria-hidden="true"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow">March 14 · Tulip Park</p>
+        <h1>People Mountain, People Sea</h1>
+        <p class="subtitle">A crowded garden, a quiet heart.</p>
+        <div class="hero-actions">
+          <button id="petalButton" class="primary">Scatter petals</button>
+          <button id="glowButton" class="ghost">Make it glow</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="poem">
+        <h2>Romantic notes</h2>
+        <div class="lines">
+          <p>We were a whisper inside the noise,</p>
+          <p>two breaths hidden in a field of red.</p>
+          <p>Every tulip leaned closer,</p>
+          <p>as if the wind was carrying a secret.</p>
+          <p class="accent">The crowd passed on,</p>
+          <p class="accent">but the color stayed with us.</p>
+        </div>
+        <div class="hint">Tip: tap the lines for a soft glow.</div>
+      </section>
+
+      <section class="memory">
+        <div class="card">
+          <h3>Memory jar</h3>
+          <p>Write the sweetest moment you felt today.</p>
+          <textarea id="memoryInput" placeholder="e.g., the way the tulips looked like a tide..."></textarea>
+          <button id="saveMemory" class="primary">Seal it</button>
+          <p id="memoryEcho" class="echo">Your memory stays here for now.</p>
+        </div>
+        <div class="card stats">
+          <h3>Color palette</h3>
+          <div class="swatches">
+            <div class="swatch"><span>#f26a8d</span></div>
+            <div class="swatch"><span>#f9b233</span></div>
+            <div class="swatch"><span>#ffe9f0</span></div>
+            <div class="swatch"><span>#1d1f2f</span></div>
+          </div>
+          <p class="soft">Inspired by the tulip sea and the dusk haze.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Made for a crowded garden and a quiet love.</p>
+    </footer>
+  </div>
+
+  <div id="petalField" aria-hidden="true"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

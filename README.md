@@ -15,6 +15,7 @@ Single-page web experiments for Genpage deployments.
 - **Quiet Triumph** (`daily/2026-03-11-test-pass/`): test night relief with momentum slider, confetti, and floating notes.
 - **Spin Cycle Studio** (`daily/2026-03-12-washing-machine/`): washing machine drum, cycle presets, water/temp sliders.
 - **Salary Day Parade** (`daily/2026-03-13-salary-day/`): paycheck slider, money jars, perk picker, coin rain.
+- **Tulip Sea, People Mountain** (`daily/2026-03-14-tulip-park/`): romantic tulip tribute with petals, poem glow, memory jar.
 
 ## Run locally
 Open the `index.html` inside any `daily/...` folder in a browser.
