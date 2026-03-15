@@ -8,3 +8,4 @@
 
 2026-03-13 — Salary Day Parade (paycheck slider, money jars, perks, coin rain)
 2026-03-14 — Tulip Sea, People Mountain (petals, poem glow, memory jar)
+2026-03-15 — Starlit Orbit (glow seeds, breeze drift, lantern release)

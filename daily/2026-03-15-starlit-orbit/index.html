@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Starlit Orbit</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="scene">
+    <header class="hero">
+      <p class="eyebrow">Daily Page • 2026-03-15</p>
+      <h1>Starlit Orbit</h1>
+      <p class="subtitle">Guide a quiet night garden. Plant glows, nudge the sky, and release a lantern into the drift.</p>
+    </header>
+
+    <section class="controls">
+      <div class="control">
+        <label for="glow">Night Glow</label>
+        <input id="glow" type="range" min="40" max="120" value="80" />
+      </div>
+      <div class="control">
+        <label for="breeze">Breeze</label>
+        <input id="breeze" type="range" min="0" max="100" value="35" />
+      </div>
+      <button id="lantern">Release Lantern</button>
+    </section>
+
+    <section class="sky" id="sky" aria-label="Interactive night sky">
+      <div class="orbit" id="orbit"></div>
+    </section>
+
+    <section class="note">
+      <p><strong>Tip:</strong> Move your cursor to steer the orbit. Tap/click to plant a new glow.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

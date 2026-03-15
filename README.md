@@ -16,6 +16,7 @@ Single-page web experiments for Genpage deployments.
 - **Spin Cycle Studio** (`daily/2026-03-12-washing-machine/`): washing machine drum, cycle presets, water/temp sliders.
 - **Salary Day Parade** (`daily/2026-03-13-salary-day/`): paycheck slider, money jars, perk picker, coin rain.
 - **Tulip Sea, People Mountain** (`daily/2026-03-14-tulip-park/`): romantic tulip tribute with petals, poem glow, memory jar.
+- **Starlit Orbit** (`daily/2026-03-15-starlit-orbit/`): night garden with glow seeds, breeze drift, lantern release.
 
 ## Run locally
 Open the `index.html` inside any `daily/...` folder in a browser.
